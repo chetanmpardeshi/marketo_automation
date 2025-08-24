@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetan Pardeshi - Software Test Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="40%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+           <!-- animation: rotate 4s linear infinite;*-->
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+			
+        }
+		.profile-img {
+			background-image: url("selfie.jpg");
+			background-size: cover;
+		}
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeInLeft 1s ease-out 0.3s both;
+        }
+
+        .profile-info .title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            animation: fadeInLeft 1s ease-out 0.5s both;
+        }
+
+        .contact-info {
+          <!--  display: flex;-->
+            gap: 25px;
+            flex-wrap: wrap;
+            animation: fadeInLeft 1s ease-out 0.7s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .left-column {
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .right-column {
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #e74c3c;
+            transition: width 0.5s ease;
+        }
+
+        .section:hover h2::after {
+            width: 100%;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before,
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .experience-item:hover::before,
+        .education-item:hover::before {
+            left: 100%;
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .item-company {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .item-date {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .skill-category:hover h3 {
+            color: white;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover .skill-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .progress-bar {
+            background: #ecf0f1;
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 4px;
+            transition: width 2s ease;
+            width: 0;
+        }
+
+        .sidebar-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-section:hover {
+            background: #e3f2fd;
+            transform: scale(1.02);
+        }
+
+        .languages .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .language-level {
+            background: #2ecc71;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+
+        .certifications .cert-item {
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+
+        .certifications .cert-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2em;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape">🔧</div>
+        <div class="shape">💻</div>
+        <div class="shape">🚀</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-img">
+                    
+                </div>
+                <div class="profile-info" style="width:500px;">
+                    <h1>Chetan Pardeshi</h1>
+                    <div class="title">Software Test Engineer</div>
+
+                </div>
+				                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>chetanmpardeshi@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8459360890</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pimpri, Pune</span>
+                        </div>
+                        <!--<div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/chetan-pardeshi</span>
+                        </div>-->
+                    </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <h2><i class="fas fa-user-circle"></i> Professional Summary</h2>
+                    <ul style="text-align:justify;">
+	
+						  <li><b>11+ years</b> of IT experience with expertise in <b>Software Testing (Manual and Automation)</b> and <b>Marketing Automation using Adobe Marketo</b> Tool.</li>
+						  
+						  <li><b>8 years in Software Testing:</b> 5 years <b>Manual</b> (SDLC, STLC, <b>Agile</b>/Scrum, functional, regression, UI, non-functional) and nearly 3 years in <b>Automation (Selenium, Java,</b> Cucumber, REST API, CI/CD—Jenkins).</li>
+						  
+						  <li><b>3 years</b> hands-on with <b>Adobe Marketo Engage:</b> QA for email programs / webinars / tradeshows, campaign setup, <b>tracking</b>, landing page integration, <b>SFDC</b> sync, and reporting. Proficient in <b>HTML, CSS, JavaScript</b> for email/landing page development and integration with Unbounce.</li>
+						  
+						  <li>Experience in <b>QA of software/web/mobile</b> applications, automotive, IoT.</li>
+						  
+						  <li>Skilled in developing and maintaining <b>Automated Test Frameworks</b>, Test Suite, Test Case, Test Plan.</li>
+						  
+						  <li>Exploring the new <b>AI automation tools</b> like <b>Generative AI Tools, N8N, MCP Servers, AI Agents, Test Rigor, Cursor</b>.</li>
+						  
+						  <li>Strong <b>team player</b>, collaborating with developers, product managers, and cross-functional teams to deliver robust solutions.</li>
+						  
+						  <li>Experienced in <b>mentoring</b> junior testers and promoting best practices to maintain high quality standards.</li>
+						  
+						  <li>Focused on <b>innovation, efficiency, and delivering business value</b> through technology and automation.</li>
+						</ul>
+
+
+
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-briefcase"></i> Experience</h2>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Web/Email QA, Analyst / Technical Lead</div>
+                                <div class="item-company">Phreesia</div>
+                            </div>
+                            <div class="item-date">Apr 2022 - Aug 2025</div>
+                        </div>
+                     <ul style="text-align:justify;">
+						  <li><b>Email QA:</b> Performed end-to-end QA of <b>Marketo email campaigns (emails, landing pages, forms, nurture workflows)</b>, validating responsive HTML templates across Outlook, Gmail and mobile clients. Ensured rendering accuracy, accessibility compliance, correct personalization tokens, and flawless tracking links before launch.</li>
+						  
+						  <li><b>Web QA:</b> QA-tested <b>landing pages, forms</b>, including functional, regression, cross-browser testing, and device compatibility checks. Verified form submissions, lead flows, and SFDC sync for data accuracy.</li>
+						  
+						  <li><b>Campaign Execution &amp; QA:</b> Tested segmentation, dynamic content, and program logic to ensure precise targeting and zero-defect campaign launches.</li>
+						  
+						  <li><b>Collaboration:</b> Worked with cross-functional teams (Marketing Ops, Demand Gen, Developers) to troubleshoot issues, review test plans, log defects, and provide QA sign-off.</li>
+						  
+						  <li><b>Development &amp; Mentorship:</b> Built responsive emails, templates, landing pages, and forms using HTML, CSS, and JavaScript. Trained and mentored team members on campaign QA best practices, and technical troubleshooting.</li>
+						</ul>
+
+                    </div>
+
+                  <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Software Test Engineer</div>
+                                <div class="item-company">Quality Assurance Systems</div>
+                            </div>
+                            <div class="item-date">2020 - 2022</div>
+                        </div>
+                        <ul>
+                            <li>Performed functional, regression, and integration testing</li>
+                            <li>Created detailed bug reports and maintained defect tracking</li>
+                            <li>Participated in Agile development processes and sprint planning</li>
+                            <li>Conducted API testing using Postman and REST Assured</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Junior Test Engineer</div>
+                                <div class="item-company">StartUp Tech Solutions</div>
+                            </div>
+                            <div class="item-date">2019 - 2020</div>
+                        </div>
+                        <ul>
+                            <li>Executed manual test cases for mobile and web applications</li>
+                            <li>Assisted in test case design and documentation</li>
+                            <li>Supported senior testers in automation script development</li>
+                            <li>Participated in user acceptance testing coordination</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="right-column">
+			 <div class="section">
+                    <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            
+                            <div class="skill-tags">
+                                <span class="skill-tag">Selenium</span>
+                                <span class="skill-tag">Cucumber</span>
+                                <span class="skill-tag">TestNG</span>
+                                <span class="skill-tag">Maven</span>
+                                <span class="skill-tag">POM</span>
+                                <span class="skill-tag">REST API</span>
+								<span class="skill-tag">Java</span>
+                                <span class="skill-tag">Postman</span>
+                      
+                   
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">OOPS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">SQL</span>
+								
+								  <span class="skill-tag">JIRA</span>
+								  
+								                      <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+								<span class="skill-tag">Git-Hub</span>
+								<span class="skill-tag">Jenkins</span>
+								<span class="skill-tag">Burpsuite</span>
+								<span class="skill-tag">Unbounce</span>
+								<span class="skill-tag">Adobe Marketo</span>
+                            </div>
+                        </div>
+                        <!--<div class="skill-category">
+                            <h3>Programming</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">OOPS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Test Management</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">JIRA</span>
+                                <span class="skill-tag">Mantis</span>
+                                <span class="skill-tag">Monday</span>
+                                <span class="skill-tag">Integrity</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Skillset</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+								<span class="skill-tag">Git-Hub</span>
+								<span class="skill-tag">Jenkins</span>
+								<span class="skill-tag">Burpsuite</span>
+								<span class="skill-tag">Unbounce</span>
+								<span class="skill-tag">Adobe Marketo</span>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+               
+
+                <div class="sidebar-section certifications">
+                    <h2><i class="fas fa-certificate"></i> Certifications</h2>
+                    <div class="cert-item">
+                        <strong>Foundation Level</strong>
+                        <div>CST (Certified Software Tester) from Mindscript, Pune in 2013.</div>
+                    </div>
+                    <div class="cert-item">
+                        <strong>Automation Certificates</strong> - Udemy
+                        <div>Selenium WebDriver</div>
+                        <div>Cucumber</div>
+						<div>REST API Test</div>
+                    </div>
+                    <div class="cert-item">
+                        <strong>AI Certificate</strong> - UpGrad
+                        <div>Generative AI Foundations</div>
+                    </div>
+                </div>
+
+
+
+                <div class="sidebar-section">
+                    <h2><i class="fas fa-trophy"></i> Key Achievements</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Reduced regression testing time by 40% using Selenium automation in Java.</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Tested and launched 300+ email campaigns and 50+ webinars with error-free execution.</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Mentored and trained team members</li>
+                        <li><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Recognized as a go-to person for complex QA troubleshooting.</li>
+                    </ul>
+                </div>
+				 <div class="sidebar-section education">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="education-item">
+					<div class="item-company">University of Pune</div>
+                        <div class="">Bachelor of Computer Science</div>
+                        <div class="">2006 - 2009</div>
+                       
+                   
+                     <div class="">Master of Computer Science</div>
+                        <div>2010 - 2011</div>
+       
+                    </div>
+                </div>
+				                <div class="sidebar-section languages">
+                    <h2><i class="fas fa-language"></i> Languages</h2>
+                    <div class="language-item">
+                        <span>English</span>
+                        <span class="language-level">Fluent</span>
+                    </div>
+                    <div class="language-item">
+                        <span>Hindi</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span>Marathi</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate skill progress bars on scroll
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.progress-fill');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width') || '80%';
+                bar.style.width = width;
+            });
+        }
+
+        // Trigger animations when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    if (entry.target.classList.contains('skills-grid')) {
+                        animateSkills();
+                    }
+                }
+            });
+        });
+
+        // Observe elements for animation
+        document.querySelectorAll('.section, .sidebar-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects and interactions
+        document.querySelectorAll('.experience-item, .education-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.borderLeftColor = '#e74c3c';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.borderLeftColor = '#3498db';
+            });
+        });
+
+        // Smooth scroll effect for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
